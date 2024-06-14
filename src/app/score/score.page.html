@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Score</ion-title>
+  </ion-toolbar>
+ 
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list>
+      <ion-item *ngFor="let player of players">
+        <ion-label>{{ player.name }}</ion-label>
+        <ion-label> {{ player.calculateTotalScore() }} </ion-label>
+        <ion-label> {{ player.getPlayerRank() }} </ion-label>        
+      </ion-item>
+      </ion-list>
+  </ion-list>
+  
+</ion-content>

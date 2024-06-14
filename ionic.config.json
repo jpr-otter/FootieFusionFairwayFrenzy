@@ -1,0 +1,7 @@
+{
+  "name": "FootieFusionFairwayFrenzy",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

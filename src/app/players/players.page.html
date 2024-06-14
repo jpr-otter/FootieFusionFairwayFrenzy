@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Players</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-item>
+      <ion-input placeholder="Type in player name" #nameInput></ion-input>
+      <ion-button slot="end" (click)="add(nameInput)"><ion-icon name="add"></ion-icon></ion-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list>
+      <ion-item *ngFor="let player of players">
+        <ion-label>{{ player.name }}</ion-label>
+        <ion-button slot="end" (click)="remove(player)"><ion-icon name="remove"></ion-icon></ion-button>
+      </ion-item>
+      </ion-list>
+  </ion-list>
+  
+</ion-content>

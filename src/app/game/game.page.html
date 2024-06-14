@@ -1,0 +1,33 @@
+<ion-header [translucent]="false">
+  <ion-toolbar color="light">
+    <ion-title>Game</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar color="light">
+    <ion-item color="light" class="ion-text-center" lines="none">
+      <ion-button slot="start" (click)="previousCourse()"><ion-icon slot="icon-only"  name="chevron-back"></ion-icon></ion-button>
+      <ion-label> Course {{(currentCourse?.id ?? 0) + 1}} </ion-label>
+      <ion-button slot="end" (click)="nextCourse()"><ion-icon slot="icon-only" name="chevron-forward"></ion-icon></ion-button>
+      <ion-thumbnail slot="end">
+        <img alt="whatever" [border]="2" [src]="currentImage" (mouseover)="onThumbnailHover()" (mouseout)="onThumbnailMouseOut()"/>
+      </ion-thumbnail>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let player of players">
+      <ion-input [label]="player.name" min="0" labelPlacement="fixed" (ionChange)="modifyScore(scoreInput, player)" #scoreInput
+        [placeholder]="player.scores[currentCourse!.id].score === 0 ? 'Enter score' : ''"
+        [ngModel]="player.scores[currentCourse!.id].score === 0 ? '' : player.scores[currentCourse!.id].score" type="number">
+
+
+      </ion-input>
+      <ion-button slot="end" (click)="modifyScore(scoreInput, player, -1)"><ion-icon slot="icon-only"
+          name="remove"></ion-icon></ion-button>
+      <ion-button slot="end" (click)="modifyScore(scoreInput, player, 1)"><ion-icon slot="icon-only"
+          name="add"></ion-icon></ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
